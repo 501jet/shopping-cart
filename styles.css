@@ -1,0 +1,130 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+
+body {
+   padding: 0px;
+    margin: 0px;
+}
+
+ .wrapper {
+    display: grid;
+    grid-template-rows: 200px 700px;
+    grid-template-columns: 2fr 1fr;
+
+}
+
+header {
+    grid-column: span 2;
+    grid-row: 1 / 2;
+    justify-self: center;
+    align-self: center;
+    margin: 0px;
+    padding: 0px;
+
+}
+
+h1 {
+    margin: 0;
+    align-items: center;
+}
+
+.items-section {
+    grid-row: 2 / 3;
+    grid-column: 1 / 2;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    grid-template-rows: repeat(4, 100px);
+    grid-gap: 30px;
+    padding: 20px;
+}
+
+.item-buttons {
+    border-radius: 10px;
+}
+
+
+.cart {
+   grid-column: 2 / 3;
+   display: grid;
+   grid-template-columns: 3fr 1fr; 
+   grid-template-rows: 300px 100px 100px;
+}
+
+/* li {
+    grid-row: 1 / 2;
+    list-style: none;
+    font-size: 20px;
+    border-bottom: 2px solid grey;
+    padding: 10px;
+    background-color: rgb(238, 213, 177);
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr;
+     
+}*/
+
+.selections {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr;
+    
+
+}
+
+#clear-button {
+    grid-row: 2 / 3;
+    height: 30px;
+    width: 60px;
+    margin: 20px;
+    justify-content: right;
+    grid-column: 2/3;
+
+}
+
+#total {
+    
+    grid-row: 2 / 3;
+    grid-column: 1/2;
+
+}
+
+
+
+/*
+.wrapper {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-areas: 
+    "header header header"
+    "items items cart"
+}
+
+.header {
+    grid-area: header;
+    background-color: pink;
+}
+
+.items-section {
+    grid-area: items;
+}
+
+.cart {
+    grid-area: cart;
+    background-color: brown;
+}
+
+
+.items-section {
+    background-color: blue;
+    /* grid-row: 2 / 3;
+    grid-column: 1 / 2; */ /*
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    grid-template-rows: repeat(3, auto);
+    grid-gap: 30px;
+    border-radius: 30px;
+    padding: 20px;
+}
+*/
