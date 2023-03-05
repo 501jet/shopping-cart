@@ -42,6 +42,7 @@ h1 {
 
 .item-buttons {
     border-radius: 10px;
+    cursor: pointer;
 }
 
 
@@ -69,8 +70,7 @@ h1 {
     display: grid;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
     grid-template-columns: 1fr;
-    
-
+    overflow: scroll;
 }
 
 #clear-button {
@@ -79,7 +79,7 @@ h1 {
     width: 60px;
     margin: 20px;
     justify-content: right;
-    grid-column: 2/3;
+    grid-column: 2 / 3;
 
 }
 
@@ -90,7 +90,13 @@ h1 {
 
 }
 
+.removeButton {
+    color: red;
+    background-color: white;
+    border: none;
+    cursor: pointer;
 
+}
 
 /*
 .wrapper {

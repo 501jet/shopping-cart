@@ -17,6 +17,8 @@
     NOTES
     - not sure how to assign prices yet
     - possibly append button.innerText to the cart to update it.
+    ^ going to change the append to a button function and the 'x2' to a seperate function,
+    using a loop to update the amount of clicks and show the corresponding number
     - possibly assign price with object 
 
     working on assigning prices to items with an object
@@ -29,99 +31,65 @@
     the html and then clear and slice the array.
 */ 
 
-// class Cart 
-   // constructor(selections) {
-        //this.selections = selections
-   // }   
 
-/* function calcTotal() {
-
-}*/
-
-    // clear() {
-       // this.selections = ''
-       // }
-
-const priceList = [
-    {
-        name: 'long sleeved shirt',
-        price: '50',
-    },
-
-    {
-        name: 'wallet',
-        price: '35'
-    }
-]
 
 const buttons = document.querySelectorAll('.item-buttons') 
 const selections = document.querySelector('.selections')
 // const cart = document.querySelector('.cart')
 const total = document.getElementById('total')
 const clear = document.getElementById('clear-button')
+const ul = document.createElement('ul')
+let priceArr = [];
 
-// const cart = new Cart(selections)
-
-/* buttons.forEach (button => {
-    button.addEventListener('click', () => {
-    selections.append(button.textContent) 
+function clicks ()  {
     
-    })
-})
-
-*/ 
-
-/* let ul = document.createElement('ul')
-
-
-buttons.forEach (button => {
+    buttons.forEach (button => {
+    let count = 1
     let li = document.createElement('li')
-    button.addEventListener('click', () => {
-    li.innerHTML = button.textContent
-    ul.appendChild(li)
-    })
+    let removeButton = '<button class = "removeButton"><i class ="material-icons"> delete </i></button>'
     
-
-})
-
-selections.appendChild(ul)
-*/
-
-let ul = document.createElement('ul')
-
-
-buttons.forEach (button => {
-    let li = document.createElement('li')
     button.addEventListener('click', () => {
-    li.innerHTML = button.textContent
-    ul.append(li)
-    ul.style.listStyle = 'none'
-    })
+        (count != 1) ? li.innerHTML = removeButton +
+        button.textContent + "x" + count : li.innerHTML = removeButton + button.textContent
+        
+        ul.append(li)
+        ul.style.listStyle = 'none'
+        ul.style.lineHeight = '200%'
+        
+        priceArr.push(button.id)
+        function toNumber(value) {
+            return Number(value)
+        }
+        let numArr = priceArr.map(toNumber);
+        console.log(numArr)
+        count++
+        
+        })
 })
 
+     
+
+}
+
+
+
+clicks()
 selections.append(ul)
 
+
+/* removeButton.addEventListener('click', () => {
+                console.log('clicked')
+            })
+            */
 
 
 clear.addEventListener('click', button => {
     selections.textContent = ''
 })
 
-//adds items to the cart
-
-// convert the inner text to a string and append it to the cart
 
 
 
-
-    
-// calculates the total
-// working on doing this by assigning prices in the html id and then accessing
-// it, converting it into a number and then adding it to the cart
-
-
-
-//empties the cart
 
 
 
