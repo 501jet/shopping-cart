@@ -31,15 +31,29 @@
     the html and then clear and slice the array.
 */ 
 
+class Cart {
+    constructor(selections, total){
+        this.selections = selections
+        this.total = total
+        this.clear()
+    }
 
+    clear() {
+        this.selections = ''
+        this.total = ''
+    }
+
+    updateCart(){
+        
+    }
+}
 
 const buttons = document.querySelectorAll('.item-buttons') 
 const selections = document.querySelector('.selections')
-// const cart = document.querySelector('.cart')
 const total = document.getElementById('total')
 const clear = document.getElementById('clear-button')
 const ul = document.createElement('ul')
-let priceArr = [];
+const itemPrices = [];
 
 function clicks ()  {
     
@@ -55,13 +69,24 @@ function clicks ()  {
         ul.append(li)
         ul.style.listStyle = 'none'
         ul.style.lineHeight = '200%'
-        
-        priceArr.push(button.id)
+
+        itemPrices.push(button.id)
         function toNumber(value) {
             return Number(value)
         }
-        let numArr = priceArr.map(toNumber);
-        console.log(numArr)
+        let numArr = itemPrices.map(toNumber);
+        let sum = numArr.reduce((a,b) => {
+            return a + b
+        })
+        function displayTotal(){
+
+        
+        const display = document.createElement('h4')
+        const displayContent = document.createTextNode(sum)
+        total.append(displayContent)
+        }
+        displayTotal()
+        
         count++
         
         })
@@ -76,22 +101,12 @@ function clicks ()  {
 clicks()
 selections.append(ul)
 
-
-/* removeButton.addEventListener('click', () => {
-                console.log('clicked')
-            })
-            */
-
+const cart = new Cart (selections, total)
 
 clear.addEventListener('click', button => {
-    selections.textContent = ''
+    clear()
 })
 
 
-
-
-
-
-
-total.innerHTML = "<h3>Total:</h3><break><h4>£0.00</h4>"
+total.innerHTML = "<h3>Total:</h3><break>"
 
