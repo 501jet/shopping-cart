@@ -23,12 +23,7 @@
 
     working on assigning prices to items with an object
 
-    update:
-    working on assigning items via the elements id 
 
-    update: currently getting a typeError, saying that selections.clear() is not
-    a function. going to add my selections to an object, attach the object to 
-    the html and then clear and slice the array.
 */ 
 
 class Cart {
@@ -43,8 +38,12 @@ class Cart {
         this.total = ''
     }
 
-    updateCart(){
+    appendSelection(selections) {
         
+    }
+
+    updateCart() {
+        this.selections.innerText  = this.selections
     }
 }
 
@@ -55,7 +54,7 @@ const clear = document.getElementById('clear-button')
 const ul = document.createElement('ul')
 const itemPrices = [];
 
-function clicks ()  {
+/* function clicks ()  {
     
     buttons.forEach (button => {
     let count = 1
@@ -99,12 +98,19 @@ function clicks ()  {
 
 
 clicks()
-selections.append(ul)
+selections.append(ul) */
 
 const cart = new Cart (selections, total)
 
+buttons.forEach(button => {
+    button.addEventListener('click', () => {
+        selections.appendSelection(button.innerText)
+        updateCart()
+    })
+})
+
 clear.addEventListener('click', button => {
-    clear()
+    clear()   
 })
 
 
